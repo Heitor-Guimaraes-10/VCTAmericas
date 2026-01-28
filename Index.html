@@ -9,71 +9,163 @@
             padding: 0;
             box-sizing: border-box;
         }
- 
+
         body {
-         
             background: radial-gradient(circle, #1a2332 0%, #111823 100%);
-            height: 100vh;
+            min-height: 100vh; 
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
             border-left: 10px solid #F55114;
-            border-right:10px solid #F55114;
+            border-right: 10px solid #F55114;
+            padding: 20px;
         }
- 
+
         .card {
             text-align: center;
-            padding: 50px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(245, 81, 20, 0.3);
+            padding: 20px;
+            background: rgba(182, 182, 182, 0.3);
+            border: 6px solid rgba(245, 81, 20);;
             border-radius: 4px;
             backdrop-filter: blur(10px);
+            max-width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
         }
- 
+
         h1 {
             font-size: 3rem;
             letter-spacing: 2px;
-            margin-bottom: 15px;
+            margin-bottom: 30px; 
             color: #F55114;
             text-transform: uppercase;
+            text-align: center;
         }
- 
-        p {
-            font-size: 1.2rem;
-            opacity: 0.8;
+
+       
+        section {
+            margin-bottom: 25px;
+            list-style: none;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            width: 100%;
+        }
+
+        a {
+            color: #F55114;
+            text-decoration: none;
+            font-weight: bold;
+            width: 100%;
         }
     </style>
 </head>
 <body>
- 
-    <div class="card">
-        <h1>VCT AMERICAS</h1>
-        <h2>Times</h2>
-        <ol>
-            <li><strong><h2>MIBR</strong></h2></strong></li>
-            <img width="200"
-            src="https://mibr.gg/wp-content/uploads/2025/02/icon.png">
-            <li><strong><h2>NRG</strong></h2></strong></li>
-            <img width="200"
-            src="https://yt3.googleusercontent.com/bsvNKyNAT-pul9-9S20WDJ4naQg89xe7VZdgl_r4yemIOsCzb0eINrHiZ5SX8_QyMkmUYTk=s900-c-k-c0x00ffffff-no-rj%22>
-            <li><strong><h2>G2</strong></h2></strong></li>
-            <img width="200"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsWKA2dPv95rcmLRZuDrsuoF0wJQSiNVALpA&s">
-            <li><strong><h2>Furia</strong></h2></strong></li>
-            <img width="200"
-            src="https://theclutch.com.br/wp-content/uploads/2023/02/Furia-Esports.png">
-            <li><strong><h2>Cloud9</strong></h2></strong></li>
-            <img width="200"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTrm2JMqtX_e9K95xYTPsS-coSQInFKbOKuQ&s">
- 
-            <h2> Acompanhe a tabela aqui!!!</h2>
-            <a href="https://www.vlr.gg/event/2682/vct-2026-americas-kickoff">Tabela VCT 2026 Americas</a>
- 
-        </ol>
-    </div>
- 
+
+    <header>
+        <h1>Times VCT Americas Kickoff 2026</h1>
+    </header>
+
+   
+    <main>
+        <div class="card">
+            <h2>Times</h2>
+            <br>                        
+            
+            <section>
+                <h2>MIBR</h2>
+                <img width="200" src="https://owcdn.net/img/632be7626d6d9.png">
+                <h2>Acompanhe a MIBR aqui!!!</h2>
+            <a href="https://mibr.gg/" target="_blank">Site MIBR</a>
+            <a href="https://x.com/mibr" target="_blank">X/Twitter MIBR</a>
+            </section>
+
+            <section>
+                <h2>NRG</h2>
+                <img width="200" src="https://owcdn.net/img/6610f026c1a9e.png">
+                <h2>Acompanhe a NRG aqui!!!</h2>
+            <a href="https://www.nrg.gg/" target="_blank">Site NRG</a>
+            <a href="https://x.com/NRGgg" target="_blank">X/Twitter NRG</a>
+            </section>
+
+            <section>
+                <h2>G2 Esports </h2>
+                <img width="200" src="https://owcdn.net/img/633822848a741.png">
+                <h2>Acompanhe a G2 Esports aqui!!!</h2>
+            <a href="https://g2esports.com/"target="_blank">Site G2 Esports</a>
+            <a href="https://x.com/G2VALORANT"target="_blank">X/Twitter G2 Esports</a>
+            </section>
+
+            <section>
+                <h2>Furia</h2>
+                <img width="200" src="https://owcdn.net/img/632be843b7d51.png">
+                <h2>Acompanhe a Furia aqui!!!</h2>
+            <a href="https://www.furia.gg/" target="_blank">Site Furia</a>
+            <a href="https://x.com/FURIA" target="_blank">Site Furia</a>
+            </section>
+
+            <section>
+                <h2>Cloud9</h2>
+                <img width="200" src="https://owcdn.net/img/628addcbd509e.png">
+                <h2>Acompanhe a Cloud9 aqui!!!</h2>
+            <a href="https://www.vlr.gg/event/2682/vct-2026-americas-kickoff" target="_blank">Tabela VCT 2026 Americas</a>
+            </section>
+            <section>
+                <h2>100 Thieves </h2>
+                <img width="200" src="https://owcdn.net/img/603c00d5c5a08.png">
+                <h2>Acompanhe a 100 Thieves aqui!!!</h2>
+            <a href="https://www.vlr.gg/event/2682/vct-2026-americas-kickoff" target="_blank">Tabela VCT 2026 Americas</a>
+            </section>
+            <section>
+                <h2>Evil Geniuses EG</h2>
+                <img width="200" src="https://owcdn.net/img/667462f046618.png">
+                <h2>Acompanhe a EG aqui!!!</h2>
+            <a href="https://www.vlr.gg/event/2682/vct-2026-americas-kickoff" target="_blank">Tabela VCT 2026 Americas</a>
+            </section>
+            <section>
+                <h2>KRÜ Esports</h2>
+                <img width="200" src="https://owcdn.net/img/63976677069e1.png">
+                <h2>Acompanhe a KRÜ Esports aqui!!!</h2>
+            <a href="https://www.vlr.gg/event/2682/vct-2026-americas-kickoff" target="_blank">Tabela VCT 2026 Americas</a>
+            </section>
+            <section>
+                <h2>LEVIATÁN LEV</h2>
+                <img width="200" src="https://owcdn.net/img/61b8888cc3860.png">
+                <h2>Acompanhe a LEVIATÁN aqui!!!</h2>
+            <a href="https://www.vlr.gg/event/2682/vct-2026-americas-kickoff" target="_blank">Tabela VCT 2026 Americas</a>
+            </section>
+            <section>
+                <h2>LOUD</h2>
+                <img width="200" src="https://owcdn.net/img/62bbec8dc1b9f.png">
+                <h2>Acompanhe a LOUD aqui!!!</h2>
+            <a href="https://www.vlr.gg/event/2682/vct-2026-americas-kickoff" target="_blank">Tabela VCT 2026 Americas</a>
+            </section>
+            <section>
+                <h2>Sentinels</h2>
+                <img width="200" src="https://owcdn.net/img/62875027c8e06.png">
+                <h2>Acompanhe a Sentinels aqui!!!</h2>
+            <a href="https://www.vlr.gg/event/2682/vct-2026-americas-kickoff" target="_blank">Tabela VCT 2026 Americas</a>
+            </section>
+            <section>
+                <h2>ENVY</h2>
+                <img width="200" src="https://owcdn.net/img/5f3ca822464a3.png">
+                <h2>Acompanhe a ENVY aqui!!!</h2>
+            <a href="https://www.vlr.gg/event/2682/vct-2026-americas-kickoff" target="_blank">Tabela VCT 2026 Americas</a>
+            </section>
+
+            <hr style="border: 0.5px solid rgba(245, 81, 20, 0.2); margin: 20px 0;">
+
+            <h2>Acompanhe a tabela aqui!!!</h2>
+            <a href="https://www.vlr.gg/event/2682/vct-2026-americas-kickoff" target="_blank">Tabela VCT 2026 Americas</a>
+        </div>
+    </main>
+
 </body>
 </html>
- 

@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("fundoVCT.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    border-left: 10px solid #F55114;
+    border-right: 10px solid #F55114;
+    padding: 40px 20px;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza tudo dentro do main */
+}
+
+h1 {
+    font-size: 3rem;
+    color: #F55114;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.9);
+    margin-bottom: 30px;
+}
+
+.titulo-sessao {
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    border: 15px solid rgba(255, 255, 255, 0.1);
+    width: 95%;
+    max-width: 1400px;
+    padding: 50px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    justify-items: center; /* Centraliza os itens no grid */
+}
+
+.card section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 450px;
+    width: 100%;
+    position: relative;
+    transition: background 0.4s ease;
+    padding-bottom: 20px;
+}
+
+.card section img {
+    max-width: 200px;
+    height: 180px;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 15px;
+}
+
+@keyframes pulsar {
+    0% { transform: scale(1.1); }
+    50% { transform: scale(1.18); }
+    100% { transform: scale(1.1); }
+}
+
+.card section:hover img {
+    animation: pulsar 1.5s infinite ease-in-out;
+}
+
+.card section h2 {
+    font-size: 1.4rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+    margin-bottom: 15px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.links-hover {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    transform: translateY(10px);
+    text-align: center;
+    z-index: 10;
+    margin-top: auto;
+    width: 100%;
+}
+
+.card section:hover .links-hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.links-hover h2 {
+    font-size: 1.1rem !important;
+    height: auto !important;
+    margin-bottom: 10px !important;
+}
+
+.links-hover a {
+    display: block;
+    margin: 8px auto;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: 0.3s;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Cores e Efeitos de Hover (Simplificado) */
+.card .time-mibr:hover img { filter: drop-shadow(0 0 25px #1900ff); }
+.card .time-mibr .links-hover a { background-color: #1100ff9c; }
+
+.card .time-nrg:hover img { filter: drop-shadow(0 0 25px #ff6600); }
+.card .time-nrg .links-hover a { background-color: #ff6600; }
+
+.card .time-g2:hover img { filter: drop-shadow(0 0 25px #ffffff); }
+.card .time-g2 .links-hover a { background-color: #ffffff; color: #000; }
+
+.card .time-furia:hover img { filter: drop-shadow(0 0 25px #ffffff); }
+.card .time-furia .links-hover a { background-color: #333; }
+
+.card .time-c9:hover img { filter: drop-shadow(0 0 25px #00aeff); }
+.card .time-c9 .links-hover a { background-color: #00aeff; }
+
+.card .time-100t:hover img { filter: drop-shadow(0 0 25px #ff0000); }
+.card .time-100t .links-hover a { background-color: #ff0000; }
+
+.card .time-eg:hover img { filter: drop-shadow(0 0 25px #0044ff); }
+.card .time-eg .links-hover a { background-color: #0044ff; }
+
+.card .time-kru:hover img { filter: drop-shadow(0 0 25px #ff1493); }
+.card .time-kru .links-hover a { background-color: #ff1493; }
+
+.card .time-lev:hover img { filter: drop-shadow(0 0 25px #00bfff); }
+.card .time-lev .links-hover a { background-color: #00bfff; }
+
+.card .time-loud:hover img { filter: drop-shadow(0 0 25px #00ff00); }
+.card .time-loud .links-hover a { background-color: #00ff00; color: #000; }
+
+.card .time-sen:hover img { filter: drop-shadow(0 0 25px #ff0000); }
+.card .time-sen .links-hover a { background-color: #ff0000; }
+
+.card .time-envy:hover img { filter: drop-shadow(0 0 25px #808080); }
+.card .time-envy .links-hover a { background-color: #808080; }
+
+.card .time-tabela:hover img { filter: drop-shadow(0 0 25px #ffae00); }
+.card .time-tabela .links-hover a { background-color: #ffae00; color: #000; }
+
+@media (max-width: 768px) {
+    h1 { font-size: 1.8rem; }
+    .card { grid-template-columns: 1fr; padding: 20px; }
+}

@@ -1,182 +1,333 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    /* ==========================================================================
+    1. RESET E CONFIGURAÇÕES GERAIS
+    Objetivo: Garantir que o site comece "limpo" e igual em todos os navegadores.
+    ========================================================================== */
+    * {
+        margin: 0;  /* Remove espaços externos padrão do navegador */
+        padding: 0; /* Remove espaços internos padrão */
+        box-sizing: border-box; /* CRUCAL: Faz com que bordas e padding não aumentem a largura total dos elementos */
+    }
 
-body {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("fundoVCT.png");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
-    border-left: 10px solid #F55114;
-    border-right: 10px solid #F55114;
-    padding: 40px 20px;
-}
+    body {
+        font-family: 'Segoe UI', sans-serif; /* Fonte moderna e limpa */
+        color: white; /* Cor padrão do texto */
+        
+        /* CONFIGURAÇÃO DO FUNDO (BACKGROUND) */
+        /* Camada 1: Gradiente escuro para escurecer a imagem e melhorar leitura do texto */
+        /* Camada 2: A imagem "fundoVCT.png" */
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("fundoVCT.png");
+        background-size: cover;       /* A imagem cobre toda a tela, sem distorcer */
+        background-attachment: fixed; /* EFEITO PARALLAX: A imagem fica parada enquanto o conteúdo rola */
+        background-position: center;  /* Centraliza a imagem */
 
-main {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza tudo dentro do main */
-}
+        /* ESTRUTURA DA PÁGINA (FLEXBOX) */
+        min-height: 100vh;      /* Garante que o corpo ocupe pelo menos 100% da altura da tela visível */
+        display: flex;          /* Ativa o Flexbox */
+        flex-direction: column; /* Organiza os elementos (Main, Footer) em coluna (um embaixo do outro) */
+        align-items: center;    /* Centraliza tudo horizontalmente */
+        
+        /* ESTÉTICA LATERAL */
+        border-left: 10px solid #F55114;  /* Borda laranja esquerda (identidade VCT) */
+        border-right: 10px solid #F55114; /* Borda laranja direita */
+        
+        /* ESPAÇAMENTOS DO CORPO */
+        padding: 40px 20px;     /* 40px em cima/baixo, 20px nas laterais */
+        padding-bottom: 140px;  /* IMPORTANTE: Espaço extra no final para o conteúdo não ficar escondido atrás do Footer fixo */
+    }
 
-h1 {
-    font-size: 3rem;
-    color: #F55114;
-    text-transform: uppercase;
-    text-align: center;
-    text-shadow: 4px 4px 8px rgba(0,0,0,0.9);
-    margin-bottom: 30px;
-}
+    main {
+        width: 100%;        /* Ocupa toda a largura disponível */
+        max-width: 1400px;  /* Trava a largura em telas gigantes (4k/Ultrawide) para não ficar muito esticado */
+        display: flex;      /* Flexbox para organizar o conteúdo interno */
+        flex: 1;            /* Faz o Main crescer para ocupar todo o espaço vazio (empurrando o footer pra baixo) */
+        flex-direction: column; 
+        align-items: center; 
+    }
 
-.titulo-sessao {
-    font-size: 2rem;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 20px;
-}
+    /* ==========================================================================
+    2. TIPOGRAFIA E TÍTULOS
+    Objetivo: Estilizar os textos principais da página.
+    ========================================================================== */
+    h1 {
+        font-size: 3rem;           /* Tamanho grande */
+        color: #F55114;            /* Cor laranja destaque */
+        text-transform: uppercase; /* Força tudo em MAIÚSCULO */
+        text-align: center;        /* Centralizado */
+        text-shadow: 4px 4px 8px rgba(0,0,0,0.9); /* Sombra pesada no texto para leitura sobre fundo */
+        margin-bottom: 30px;       /* Espaço abaixo do título */
+    }
 
-.card {
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(15px);
-    border: 15px solid rgba(255, 255, 255, 0.1);
-    width: 95%;
-    max-width: 1400px;
-    padding: 50px;
-    border-radius: 8px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-    justify-items: center; /* Centraliza os itens no grid */
-}
+    .titulo-sessao {
+        font-size: 2rem;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
 
-.card section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 450px;
-    width: 100%;
-    position: relative;
-    transition: background 0.4s ease;
-    padding-bottom: 20px;
-}
+    /* ==========================================================================
+    3. GRID E CARDS (CONTAINER PRINCIPAL)
+    Objetivo: Criar o efeito de "vidro" e organizar os times.
+    ========================================================================== */
+    .card {
+        /* EFEITO GLASSMORPHISM (VIDRO) */
+        background-color: rgba(0, 0, 0, 0.4); /* Fundo preto 40% transparente */
+        backdrop-filter: blur(15px);          /* Desfoque do que está ATRÁS do card */
+        border: 1px solid rgba(255, 255, 255, 0.1); /* Borda fina e quase invisível para dar acabamento */
+        
+        /* ESTRUTURA */
+        width: 100%;
+        padding: 50px;       /* Espaço interno grande */
+        border-radius: 12px; /* Cantos arredondados */
+        
+        /* GRID INTELIGENTE (RESPONSIVIDADE AUTOMÁTICA) */
+        display: grid; 
+        /* A mágica acontece aqui: Cria colunas que tenham no mínimo 250px. 
+        Se couber mais, ele cria mais colunas. Se não, quebra linha. */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;            /* Espaço entre os cards dos times */
+        justify-items: center; /* Centraliza os itens dentro das células do grid */
+    }
 
-.card section img {
-    max-width: 200px;
-    height: 180px;
-    object-fit: contain;
-    transition: transform 0.3s ease-in-out;
-    margin-bottom: 15px;
-}
+    .card section {
+        /* Cada time é uma 'section' */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 400px; /* Altura fixa para todos os cards ficarem iguais */
+        width: 100%;
+        position: relative; /* Necessário para posicionar elementos filhos */
+        transition: transform 0.3s ease; /* Suaviza movimentos */
+    }
 
-@keyframes pulsar {
-    0% { transform: scale(1.1); }
-    50% { transform: scale(1.18); }
-    100% { transform: scale(1.1); }
-}
+    /* IMAGENS DOS LOGOS */
+    .card section img {
+        max-width: 180px;      /* Largura máxima do logo */
+        height: 160px;         /* Altura fixa */
+        object-fit: contain;   /* Garante que o logo inteiro apareça sem cortar */
+        transition: transform 0.3s ease-in-out, filter 0.3s ease; /* Animações suaves */
+        margin-bottom: 15px;
+    }
 
-.card section:hover img {
-    animation: pulsar 1.5s infinite ease-in-out;
-}
+    /* ==========================================================================
+    4. ANIMAÇÕES (PULSAR)
+    Objetivo: Dar vida ao passar o mouse.
+    ========================================================================== */
+    @keyframes pulsar {
+        0% { transform: scale(1); }    /* Tamanho normal */
+        50% { transform: scale(1.1); } /* Aumenta 10% */
+        100% { transform: scale(1); }  /* Volta ao normal */
+    }
 
-.card section h2 {
-    font-size: 1.4rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
-    margin-bottom: 15px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+    /* Quando passar o mouse na SECTION, a IMAGEM dentro dela anima */
+    .card section:hover img {
+        animation: pulsar 1.5s infinite ease-in-out; /* Roda a animação 'pulsar' em loop */
+    }
 
-.links-hover {
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-    transform: translateY(10px);
-    text-align: center;
-    z-index: 10;
-    margin-top: auto;
-    width: 100%;
-}
+    /* NOME DOS TIMES (H2) */
+    .card section h2 {
+        font-size: 1.3rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+        margin-bottom: 15px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px; /* Espaçamento entre letras */
+    }
 
-.card section:hover .links-hover {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
+    /* ==========================================================================
+    5. BOTÕES E LINKS (INTERATIVIDADE)
+    Objetivo: Esconder os links e mostrar apenas ao passar o mouse.
+    ========================================================================== */
+    .links-hover {
+        opacity: 0;          /* Invisível por padrão */
+        visibility: hidden;  /* Não clicável por padrão */
+        transform: translateY(20px); /* Posicionado um pouco para baixo */
+        transition: all 0.4s ease;   /* Animação suave para aparecer */
+        text-align: center;
+        width: 100%;
+        margin-top: auto;    /* Empurra o bloco de links para o final do card */
+    }
 
-.links-hover h2 {
-    font-size: 1.1rem !important;
-    height: auto !important;
-    margin-bottom: 10px !important;
-}
+    /* Ao passar o mouse no card (section), revela os links */
+    .card section:hover .links-hover {
+        opacity: 1;            /* Torna visível */
+        visibility: visible;   /* Torna clicável */
+        transform: translateY(0); /* Move para a posição original (sobe) */
+    }
 
-.links-hover a {
-    display: block;
-    margin: 8px auto;
-    padding: 10px 20px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 4px;
-    transition: 0.3s;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,255,255,0.2);
-}
+    /* ESTILO DOS BOTÕES (LINKS) */
+    .links-hover a {
+        display: block;        /* Ocupa a linha inteira (botão) */
+        margin: 8px auto;      /* Espaçamento entre botões */
+        padding: 10px 20px;
+        color: white;
+        text-decoration: none; /* Remove sublinhado */
+        font-weight: bold;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        border-radius: 4px;
+        
+        /* Estilo de vidro no botão também */
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,255,255,0.2);
+        transition: 0.3s; /* Tempo da animação de cor */
+    }
 
-/* Cores e Efeitos de Hover (Simplificado) */
-.card .time-mibr:hover img { filter: drop-shadow(0 0 25px #1900ff); }
-.card .time-mibr .links-hover a { background-color: #1100ff9c; }
+    /* Card Especial da Tabela (Centralizado) */
+    .card .time-tabela {
+        grid-column: 1 / -1;   /* Ocupa todas as colunas do grid (largura total) */
+        max-width: 300px; 
+        margin: 20px auto 0;   /* Centraliza na tela */
+    }
 
-.card .time-nrg:hover img { filter: drop-shadow(0 0 25px #ff6600); }
-.card .time-nrg .links-hover a { background-color: #ff6600; }
+    /* ==========================================================================
+    6. CORES PERSONALIZADAS POR TIME
+    Objetivo: Cada time tem sua cor de "Glow" (brilho) específica.
+    Lógica: drop-shadow na imagem e background-color no botão.
+    ========================================================================== */
 
-.card .time-g2:hover img { filter: drop-shadow(0 0 25px #ffffff); }
-.card .time-g2 .links-hover a { background-color: #ffffff; color: #000; }
+    /* --- MIBR (Azul) --- */
+    .card .time-mibr:hover img { filter: drop-shadow(0 0 20px #1900ff); } /* Brilho neon azul */
+    .card .time-mibr .links-hover a:hover { background-color: #1900ff; }  /* Botão fica azul */
 
-.card .time-furia:hover img { filter: drop-shadow(0 0 25px #ffffff); }
-.card .time-furia .links-hover a { background-color: #333; }
+    /* --- NRG (Laranja/Vermelho) --- */
+    .card .time-nrg:hover img { filter: drop-shadow(0 0 20px #ff6600); }
+    .card .time-nrg .links-hover a:hover { background-color: #ff6600; }
 
-.card .time-c9:hover img { filter: drop-shadow(0 0 25px #00aeff); }
-.card .time-c9 .links-hover a { background-color: #00aeff; }
+    /* --- G2 (Branco/Preto) --- */
+    .card .time-g2:hover img { filter: drop-shadow(0 0 20px #ffffff); }
+    .card .time-g2 .links-hover a:hover { background-color: #ffffff; color: black; } /* Texto vira preto para contraste */
 
-.card .time-100t:hover img { filter: drop-shadow(0 0 25px #ff0000); }
-.card .time-100t .links-hover a { background-color: #ff0000; }
+    /* --- FURIA (Preto/Branco) --- */
+    .card .time-furia:hover img { filter: drop-shadow(0 0 20px #ffffff); }
+    .card .time-furia .links-hover a:hover { background-color: #333; }
 
-.card .time-eg:hover img { filter: drop-shadow(0 0 25px #0044ff); }
-.card .time-eg .links-hover a { background-color: #0044ff; }
+    /* --- Cloud9 (Azul Celeste) --- */
+    .card .time-c9:hover img { filter: drop-shadow(0 0 20px #00aeff); }
+    .card .time-c9 .links-hover a:hover { background-color: #00aeff; }
 
-.card .time-kru:hover img { filter: drop-shadow(0 0 25px #ff1493); }
-.card .time-kru .links-hover a { background-color: #ff1493; }
+    /* --- 100 Thieves (Vermelho) --- */
+    .card .time-100t:hover img { filter: drop-shadow(0 0 20px #ff0000); }
+    .card .time-100t .links-hover a:hover { background-color: #ff0000; }
 
-.card .time-lev:hover img { filter: drop-shadow(0 0 25px #00bfff); }
-.card .time-lev .links-hover a { background-color: #00bfff; }
+    /* --- Evil Geniuses (Azul Escuro) --- */
+    .card .time-eg:hover img { filter: drop-shadow(0 0 20px #0044ff); }
+    .card .time-eg .links-hover a:hover { background-color: #0044ff; }
 
-.card .time-loud:hover img { filter: drop-shadow(0 0 25px #00ff00); }
-.card .time-loud .links-hover a { background-color: #00ff00; color: #000; }
+    /* --- KRÜ (Rosa) --- */
+    .card .time-kru:hover img { filter: drop-shadow(0 0 20px #ff1493); }
+    .card .time-kru .links-hover a:hover { background-color: #ff1493; }
 
-.card .time-sen:hover img { filter: drop-shadow(0 0 25px #ff0000); }
-.card .time-sen .links-hover a { background-color: #ff0000; }
+    /* --- LEVIATÁN (Azul Ciano) --- */
+    .card .time-lev:hover img { filter: drop-shadow(0 0 20px #00bfff); }
+    .card .time-lev .links-hover a:hover { background-color: #00bfff; }
 
-.card .time-envy:hover img { filter: drop-shadow(0 0 25px #808080); }
-.card .time-envy .links-hover a { background-color: #808080; }
+    /* --- LOUD (Verde Neon) --- */
+    .card .time-loud:hover img { filter: drop-shadow(0 0 20px #00ff00); }
+    .card .time-loud .links-hover a:hover { background-color: #00ff00; color: black; }
 
-.card .time-tabela:hover img { filter: drop-shadow(0 0 25px #ffae00); }
-.card .time-tabela .links-hover a { background-color: #ffae00; color: #000; }
+    /* --- Sentinels (Vermelho) --- */
+    .card .time-sen:hover img { filter: drop-shadow(0 0 20px #ff0000); }
+    .card .time-sen .links-hover a:hover { background-color: #ff0000; }
 
-@media (max-width: 768px) {
-    h1 { font-size: 1.8rem; }
-    .card { grid-template-columns: 1fr; padding: 20px; }
-}
+    /* --- Team Envy (Cinza/Azul Antigo) --- */
+    .card .time-envy:hover img { filter: drop-shadow(0 0 20px #808080); }
+    .card .time-envy .links-hover a:hover { background-color: #808080; }
+
+    /* --- Tabela Geral (Dourado/Laranja VCT) --- */
+    .card .time-tabela:hover img { filter: drop-shadow(0 0 20px #ffae00); }
+    .card .time-tabela .links-hover a:hover { background-color: #ffae00; color: black; }
+
+
+    /* ==========================================================================
+    7. FOOTER (RODAPÉ FIXO)
+    Objetivo: Informações de contato que ficam presas na parte inferior da tela.
+    ========================================================================== */
+    footer {
+        /* POSICIONAMENTO FIXO */
+        position: fixed; /* Tira do fluxo normal e prende na tela */
+        bottom: 0;       /* Cola no chão */
+        left: 0;         /* Cola na esquerda */
+        width: 100%;     /* Largura total */
+        z-index: 9999;   /* Garante que fique ACIMA de qualquer outro elemento */
+        
+        /* ESTILO VISUAL */
+        background-color: rgba(0, 0, 0, 0.95); /* Quase preto total */
+        backdrop-filter: blur(10px);           /* Desfoque leve */
+        border-top: 3px solid #F55114;         /* Linha laranja no topo do footer */
+        padding: 15px 0;                       /* Altura compacta */
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.8); /* Sombra projetada para cima */
+        
+        /* ALINHAMENTO INTERNO */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    footer p {
+        color: #ccc;        /* Cinza claro para não cansar a vista */
+        font-size: 0.95rem;
+        margin: 2px 0;      /* Espaçamento mínimo */
+    }
+
+    footer strong {
+        color: #F55114;     /* Destaque em laranja no texto */
+    }
+
+    .social-links {
+        margin-top: 8px;
+        display: flex;
+        gap: 20px;          /* Espaço entre os ícones/links sociais */
+    }
+
+    .social-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: bold;
+        opacity: 0.8;       /* Leve transparência inicial */
+        transition: opacity 0.3s, color 0.3s;
+    }
+
+    .social-links a:hover {
+        color: #F55114;     /* Fica laranja ao passar o mouse */
+        opacity: 1;         /* Fica totalmente opaco */
+    }
+
+    /* ==========================================================================
+    8. RESPONSIVIDADE (CELULARES E TABLETS)
+    Objetivo: Ajustar layout para telas menores que 768px.
+    ========================================================================== */
+    @media (max-width: 768px) {
+        
+        /* Diminui o tamanho do título principal */
+        h1 { font-size: 2rem; }
+        
+        body {
+            border: none;       /* Remove a borda lateral laranja para ganhar espaço */
+            padding: 20px 10px; /* Reduz espaçamento lateral */
+            padding-bottom: 120px; /* Ajusta espaço do footer */
+        }
+
+        .card { 
+            padding: 20px; /* Menos padding interno no card principal */
+            gap: 60px;     /* Aumenta espaço vertical entre times (facilitando scroll) */
+        }
+        
+        footer {
+            padding: 10px; /* Footer mais compacto ainda */
+        }
+        
+        footer p {
+            font-size: 0.8rem; /* Texto menor no rodapé */
+        }
+    }

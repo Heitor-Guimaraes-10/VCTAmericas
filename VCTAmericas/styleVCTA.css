@@ -15,7 +15,7 @@
         /* CONFIGURAÇÃO DO FUNDO (BACKGROUND) */
         /* Camada 1: Gradiente escuro para escurecer a imagem e melhorar leitura do texto */
         /* Camada 2: A imagem "fundoVCT.png" */
-        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("Imagens/FundoVCTA.png");
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../Imagens/FundoVCTA.png");
         background-size: cover;       /* A imagem cobre toda a tela, sem distorcer */
         background-attachment: fixed; /* EFEITO PARALLAX: A imagem fica parada enquanto o conteúdo rola */
         background-position: center;  /* Centraliza a imagem */
@@ -190,54 +190,67 @@
     /* --- MIBR (Azul) --- */
     .card .time-mibr:hover img { filter: drop-shadow(0 0 20px #1900ff); } /* Brilho neon azul */
     .card .time-mibr .links-hover a:hover { background-color: #1900ff; }  /* Botão fica azul */
+    .card .time-mibr{ filter: drop-shadow(0 0 20px #ffffff); } /* Brilho neon azul */
 
     /* --- NRG (Laranja/Vermelho) --- */
     .card .time-nrg:hover img { filter: drop-shadow(0 0 20px #ff6600); }
     .card .time-nrg .links-hover a:hover { background-color: #ff6600; }
+     .card .time-nrg{ filter: drop-shadow(0 0 20px #ffffff); }
 
     /* --- G2 (Branco/Preto) --- */
     .card .time-g2:hover img { filter: drop-shadow(0 0 20px #ffffff); }
     .card .time-g2 .links-hover a:hover { background-color: #ffffff; color: black; } /* Texto vira preto para contraste */
+    .card .time-g2{ filter: drop-shadow(0 0 20px #ffffff); }
 
     /* --- FURIA (Preto/Branco) --- */
     .card .time-furia:hover img { filter: drop-shadow(0 0 20px #ffffff); }
     .card .time-furia .links-hover a:hover { background-color: #333; }
+    .card .time-furia{ filter: drop-shadow(0 0 20px #ffffff); }
 
     /* --- Cloud9 (Azul Celeste) --- */
     .card .time-c9:hover img { filter: drop-shadow(0 0 20px #00aeff); }
     .card .time-c9 .links-hover a:hover { background-color: #00aeff; }
+     .card .time-c9{ filter: drop-shadow(0 0 20px #ffffff); }
 
     /* --- 100 Thieves (Vermelho) --- */
     .card .time-100t:hover img { filter: drop-shadow(0 0 20px #ff0000); }
     .card .time-100t .links-hover a:hover { background-color: #ff0000; }
+    .card .time-100t{ filter: drop-shadow(0 0 20px #ffffff); }
 
     /* --- Evil Geniuses (Azul Escuro) --- */
     .card .time-eg:hover img { filter: drop-shadow(0 0 20px #0044ff); }
     .card .time-eg .links-hover a:hover { background-color: #0044ff; }
+    .card .time-eg{ filter: drop-shadow(0 0 20px #ffffff); }
 
     /* --- KRÜ (Rosa) --- */
     .card .time-kru:hover img { filter: drop-shadow(0 0 20px #ff1493); }
     .card .time-kru .links-hover a:hover { background-color: #ff1493; }
+     .card .time-kru{ filter: drop-shadow(0 0 20px #ffffff); }
 
     /* --- LEVIATÁN (Azul Ciano) --- */
     .card .time-lev:hover img { filter: drop-shadow(0 0 20px #00bfff); }
     .card .time-lev .links-hover a:hover { background-color: #00bfff; }
+     .card .time-lev{ filter: drop-shadow(0 0 20px #ffffff); }
 
     /* --- LOUD (Verde Neon) --- */
     .card .time-loud:hover img { filter: drop-shadow(0 0 20px #00ff00); }
     .card .time-loud .links-hover a:hover { background-color: #00ff00; color: black; }
+    .card .time-loud{ filter: drop-shadow(0 0 20px #ffffff); }
 
     /* --- Sentinels (Vermelho) --- */
     .card .time-sen:hover img { filter: drop-shadow(0 0 20px #ff0000); }
     .card .time-sen .links-hover a:hover { background-color: #ff0000; }
+    .card .time-sen{ filter: drop-shadow(0 0 20px #ffffff); }
 
     /* --- Team Envy (Cinza/Azul Antigo) --- */
     .card .time-envy:hover img { filter: drop-shadow(0 0 20px #808080); }
     .card .time-envy .links-hover a:hover { background-color: #808080; }
+    .card .time-envy{ filter: drop-shadow(0 0 20px #808080); }
 
     /* --- Tabela Geral (Dourado/Laranja VCT) --- */
     .card .time-tabela:hover img { filter: drop-shadow(0 0 20px #ffae00); }
     .card .time-tabela .links-hover a:hover { background-color: #ffae00; color: black; }
+    .card .time-tabela{ filter: drop-shadow(0 0 20px #ffffff); }
 
 
     /* ==========================================================================
